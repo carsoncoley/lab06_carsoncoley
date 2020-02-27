@@ -33,18 +33,19 @@ void CustomItem::addTopping(std::string topping){
 }
 
 double CustomItem::getPrice(){
-	double tPrice = 0;
+	double tPrice = 0.0;
 	//double temp = 0.0;
 	for(std::map<string,int>::iterator i = Toppings.begin(); i != Toppings.end(); i++){
-		tPrice = (0.4) * static_cast<double>(i->second);
-		this->price += tPrice;
+		tPrice += (0.4) * static_cast<double>(i->second);
+		//this->price += tPrice;
 		//temp += 1;
 	}
+	return tPrice + this->price;
 
 	//stringstream stream;
 	//stream << fixed << setprecision(2) << price;
 	//price = price - (temp * (0.2));
-	return price;
+	//return price;
 }
 
 std::string CustomItem::composeItem(){
